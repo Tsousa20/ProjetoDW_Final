@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    
+    /*background-image: url("images/burguer2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size:cover;*/
+    
+    background-color: black;
+    margin: 0px;    
+}
+main h2{
+    width: 20%;
+    float: left;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+main p{
+    width: 20%;
+    float: left;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+main img{
+    width: 1150px;
+    float: right;
+    
+    
+}
+
+.navbar ul{
+    list-style-type: none;
+    background-color: black;
+    padding: 20px;
+    margin: 0px;
+    overflow: hidden;
+    text-align: center;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    text-align: center;
+    
+}
+.navbar a:hover{
+    border: solid;
+    border-radius: 10px;
+    border-color: white;
+    /*background-color: rgb(77, 77, 77);*/
+    
+}
+.navbar li{
+    display: inline-block;
+}
