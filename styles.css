@@ -8,7 +8,7 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(245, 245, 245);
+    background-color:  #DDC3A5;
 }
 
 /*Primeiro cabeçalho*/
@@ -28,7 +28,7 @@ main p{
     box-sizing: border-box;
     padding: 10%;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 /*Propriedades da imagem*/
@@ -41,7 +41,7 @@ main img{
 /*Propriedades da lista(geral)*/
 .navbar ul{
     list-style-type: none;
-    background-color: rgb(255, 255, 255);
+    background-color: #201E20;
     padding: 30px;
     margin: 0px;
     overflow: hidden;
@@ -52,7 +52,7 @@ main img{
 }
  /*Propriedades do CONTEUDO da lista*/
 .navbar a{
-    color: rgb(29, 29, 29);
+    color: rgb(196, 196, 196);
     font-family:monospace;
     font-size: 32px;
     font-weight: 700;;
@@ -65,15 +65,13 @@ main img{
 }
 
  /*Propriedade de hover --> cursor*/
-.navbar a:hover{
-    color: rgb(218, 50, 50);
+.navbar a:hover:not(.logo){
+    color: #E0A96D;
+    transform: translateY(-10px);
 }
 .navbar li{
     display: inline-block;
-}
-#navbarLogo{
-    float: left;
-}
+}   
 
 footer{
     display: block;
@@ -94,3 +92,50 @@ footer li{
     float: right;
     color: rgb(0, 0, 0);
 }
+
+@media screen and (max-width: 600px) {
+    .navbar a:not(.icon,.logo) {
+      display: none;
+    }
+  
+    .navbar a.icon {
+      display: block;
+    }
+
+    .navbar a:not(:first-child) {
+        display: none;
+      }
+
+      .navbar a.icon {
+        float: right;
+        display: block;
+      }
+
+      #menu-toggle {
+        display: none;
+      }
+
+      .menu-icon {
+        font-size: 40px;
+        color: white;
+        float: right;
+        padding: 14px 16px;
+        cursor: pointer;
+      }
+
+
+    #menu-toggle:checked + .navbar {
+        transform: translateX(0);
+        width: 100%;
+    }
+    
+    #menu-toggle:not(:checked) + .navbar {
+        transform: translateX(-100%);
+        width: auto;
+        transition: transform 0.3s ease;
+    }
+    
+    #menu-toggle:not(:checked) + .navbar .navbar-link {
+        display: none;
+    }
+    }
