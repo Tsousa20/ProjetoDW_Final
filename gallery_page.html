@@ -10,21 +10,45 @@
 <body>
     
     <header>
-        <!--Barra de navegação-->
+        <!--Barra de navegação-->   
         <nav class="navbar">
-            <ul>
+            <ul class="nav_menu">
                 <li><a href="welcome_page.html">Home</a></li>
                 <li><a href="menu_page.html">Menu</a></li>
-                <li id="navbarLogo"><a class="logo" href="welcome_page.html"><img src="images/logo4.2.png"></a></li>
+                <li id="navbarLogo" class="logo"><a href="welcome_page.html"><img src="images/logo4.2.png"></a></li>
                 <li><a href="gallery_page.html">Gallery</a></li>
                 <li><a href="about_page.html">About</a></li>
             </ul>
+            <div class="btncheck">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
+        <br>
+        <br>
     </header>
+    <script src="script.js"></script>
 
     <main>
-        <h2>Esta é a pagina de GALLERY</h2>
-        <!--Conteúdo principal-->
+        <section class="container-slide">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slide-1" src="images/batatas_1.png" alt="Batatas">
+                    <img id="slide-2" src="images/Hamburguer_1.png" alt="Hamburguer 1">
+                    <img id="slide-3" src="images/ambiente2.png" alt="Abiente">
+                    <img id="slide-4" src="images/bebidas_1.jpg" alt="Bebidas">
+                    <img id="slide-5" src="images/hamburguer_3.png" alt="Hamburguer 2">
+               </div>
+               <div class="slider-nav">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                    <a href="#slide-4"></a>
+                    <a href="#slide-5"></a>
+               </div>
+            </div>
+        </section>
     </main>
 
     <footer>
