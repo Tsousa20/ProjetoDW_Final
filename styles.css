@@ -58,8 +58,8 @@ header{
  /*Propriedades do CONTEUDO da lista*/
 .nav_menu li a{
     color: rgb(196, 196, 196);
-    font-family:monospace;
-    font-size: 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
     font-weight: 600;;
     text-decoration: none;
     padding: 10px, 0px;
@@ -181,6 +181,7 @@ footer li{
 .acompanhamentos,
 .bebidas,
 .sobremesas {
+    font-family: 'Bebas Neue', sans-serif;
     position: relative;
     background-color: rgb(255, 255, 255);
     padding: 2em;
@@ -189,6 +190,20 @@ footer li{
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+.hamburguers h2,
+.acompanhamentos h2,
+.bebidas h2,
+.sobremesas h2{
+    font-size: 32px;
+}
+
+.hamburguers ul,
+.acompanhamentos ul,
+.bebidas ul,
+.sobremesas ul {
+    font-size: 20px;
 }
 
 #Hamburguer_png {
@@ -207,9 +222,9 @@ footer li{
 
 #Limonada_png {
     position: absolute;
-    top: -40px;
-    right: -30px;
-    width: 40%;
+    top: -60px;
+    right: -60px;
+    width: 50%;
 }
 
 #Bolo_png {
