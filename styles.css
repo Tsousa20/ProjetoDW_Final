@@ -225,6 +225,7 @@ footer li{
 
     header{
         height: 35px;
+        z-index: 1;
     }
 
     .nav_menu .logo{
@@ -233,6 +234,13 @@ footer li{
     .container-menu{
         display: flex;
         flex-direction: column;
+    }
+
+    #Limonada_png {
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        width: 50%;
     }
     
     /* INICIO Botão "Hamburguer" */
