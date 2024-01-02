@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burguer House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+
+</head>
+
+<body>
+
+    <header>
+        <!--Barra de navegação-->   
+        <nav class="navbar">
+            <ul class="nav_menu">
+                <li><a href="welcome_page.html">Home</a></li>
+                <li><a href="menu_page.html">Menu</a></li>
+                <li id="navbarLogo" class="logo"><a href="welcome_page.html"><img src="images/logo4.2.png"></a></li>
+                <li><a href="gallery_page.html">Gallery</a></li>
+                <li><a href="about_page.html">About</a></li>
+                <li><a href="reservas_page.html" style="color: #E0A96D;">Reservation</a></li>
+            </ul>
+            <div class="btncheck">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <br>
+        <br>
+    </header>
+    
+
+    <main id="reserva_page">
+        <div class="background_image"></div>
+
+        <div class="wrapper_reserva">
+            <span class="bg-animate"></span>
+            <span class="bg-animate2"></span>
+
+            <div class="form-box_reserva nova_reserva">
+                <h2 class="animation" style="--i:0; --j:21">Reservation</h2>
+                <form action="#">
+
+                    <div class="input_box_reserva animation" style="--i:1; --j:22">
+                        <input type="text" required>
+                        <label>First Name</label>
+                        <i class='bx bxs-user'></i>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:2; --j:23">
+                        <input type="text" required>
+                        <label>Last Name</label>
+                        <i class='bx bxs-user'></i>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:3; --j:24">
+                        <input type="email" required>
+                        <label>Email</label>
+                        <i class='bx bxs-envelope'></i>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:4; --j:25">
+                        <input type="number" min="1" max="10" required>
+                        <label>Nº of People</label>
+                        <i class='bx bxs-user-plus'></i>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:5; --j:26">
+                        <input type="date"  required>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:6; --j:27">
+                        <input type="time" id="hora" required>
+                        <label></label>
+                    </div>
+
+                    <button type="submit" class="btn_reserva animation" style="--i:7; --j:28">Book</button>
+
+                    <div class="goto_check_reserva animation" style="--i:8; --j:29">
+                        <p>Already have a reservation? <a href="#" class="goto_check_reserva_link">Check Reservation</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info_text_reserva nova_reserva">
+                <h2 class="animation" style="--i:0; --j:20">Book your table!</h2>
+                <p class="animation" style="--i:1; --j:21">Enjoy the experience of dinning in our restaurant!</p>
+            </div>
+
+
+            <div class="form-box_reserva verificar_reserva">
+                <h2 class="animation" style="--i:17; --j:0">Check Reservation</h2>
+                <form action="#">
+
+                    <div class="input_box_reserva animation" style="--i:18; --j:1">
+                        <input type="text" required>
+                        <label>First Name</label>
+                        <i class='bx bxs-user'></i>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:19; --j:2">
+                        <input type="text" required>
+                        <label>Last Name</label>
+                        <i class='bx bxs-user'></i>
+                    </div>
+
+                    <div class="input_box_reserva animation" style="--i:20; --j:3">
+                        <input type="email" required>
+                        <label>Email</label>
+                        <i class='bx bxs-envelope'></i>
+                    </div>
+
+                    <button type="submit" class="btn_reserva animation" style="--i:21; --j:4">Check Reservation</button>
+
+                    <div class="goto_check_reserva animation" style="--i:22; --j:5">
+                        <p>Don't have a reservation? <a href="#" class="goto_nova_reserva_link">Make Reservation</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info_text_reserva verificar_reserva">
+                <h2 class="animation" style="--i:17; --j:0">Welcome Back!</h2>
+                <p class="animation" style="--i:18; --j:1">Check your reservation. We are preparing your experience!</p>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <!--Localização/Contacto/Email/Horario-->
+        <hr>
+        <ul>
+            <li><i class="fa-solid fa-house"></i> : Avenida da Liberdade, 240</li>
+            <li><i class="fa-solid fa-phone"></i> : 212 585 999 / 912 912 912</li>
+            <li><i class="fa-solid fa-calendar-days"></i> : Monday - Sunday: 12.00 P.M - 02.00 A.M</li>
+            
+        </ul>
+        <span class="icons">
+            <i class="fa-brands fa-instagram fa-2xl"></i>
+            <i class="fa-brands fa-x-twitter fa-2xl"></i>
+            <i class="fa-brands fa-tiktok fa-2xl"></i>
+        </span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,892 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+}
+/*body --> estas propriedades servem para a pagina ter estrutura*/
+/*body --> para que o header fique no inicio, o main a meio, e o footer o fim*/
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    min-height: 100vh;
+}
+
+/* NAVBAR */ 
+header{
+    background: #201e2081;
+    width: 100%;
+    height: 160px;
+}
+/*Propriedades da lista(geral)*/
+.nav_menu{
+    list-style-type: none;
+    padding: 30px;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+ /*Propriedades do CONTEUDO da lista*/
+.nav_menu li a{
+    color: rgb(196, 196, 196);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    font-weight: 600;;
+    text-decoration: none;
+    padding: 10px, 0px;
+    display: block;
+    text-align: center;
+
+    transition: all 0.2s;
+}
+
+ /*Propriedade de hover --> cursor*/
+.nav_menu li a:hover:not(.logo){
+    color: #E0A96D;
+}
+
+.nav_menu li{
+    display: inline-block;
+} 
+/* NAVBAR */  
+
+/* NAVBAR ECRÃS PEQUENOS */
+.btncheck{
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(196, 196, 196);
+}
+/* NAVBAR ECRÃS PEQUENOS */
+
+/* FOOTER */
+footer{
+    background-color: #201e2081;
+    margin-top: auto;
+    color: rgb(196, 196, 196);
+}
+
+footer li{
+    padding: 40px;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+}
+
+.icons{
+    padding: 40px;
+    display: block;
+    float: right;
+}
+/* FOOTER */
+
+/* BACKGROUND IMAGE (TUDO MENOS WELCOME PAGE)*/
+.background_image {
+    width: 100%;
+    height: 100vh;
+    filter: blur(3px);
+    background-image: url('images/background_image.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+/* BACKGROUND IMAGE (TUDO MENOS WELCOME PAGE)*/
+
+/* INICIO WELCOME PAGE */
+.background_welcome_image {
+    width: 100%;
+    height: 100vh;
+    filter: blur(3px);
+    background-image: url('images/welcome_background.jpg');
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+  
+.texto_welcome {
+    top: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15vw;
+    color: rgb(255, 255, 255);
+    text-shadow: 10px 5px 5px rgba(27, 27, 27, 0.842);
+}
+  
+.texto_continuacao {
+    top: 60vh;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6vw;
+    color: rgb(255, 255, 255);
+    text-shadow: 10px 5px 5px rgba(27, 27, 27, 0.842);
+    z-index: 1; /* Alterado o z-index para que o texto fique acima da imagem */
+}
+/* FIM WELCOME PAGE */
+
+/* INICIO MENU PAGE */
+.container-menu {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 30px;
+    gap: 50px;
+}
+
+.hamburguers,
+.acompanhamentos,
+.bebidas,
+.sobremesas {
+    font-family: 'Bebas Neue', sans-serif;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.692);
+    padding: 2em;
+    border-radius: 0.5rem;
+    box-shadow: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
+}
+
+.hamburguers h2,
+.acompanhamentos h2,
+.bebidas h2,
+.sobremesas h2{
+    font-size: 32px;
+}
+
+.hamburguers ul,
+.acompanhamentos ul,
+.bebidas ul,
+.sobremesas ul {
+    font-size: 20px;
+}
+
+#Hamburguer_png {
+    position: absolute;
+    top: -70px;
+    right: -60px;
+    width: 35%;
+}
+
+#Batatas_png {
+    position: absolute;
+    top: 80px;
+    right: -70px;
+    width: 60%;
+}
+
+#Limonada_png {
+    position:    absolute;
+    top: -60px;
+    right: -10px;
+    width: 30%;
+}
+
+#Bolo_png {
+    position: absolute;
+    top: -40px;
+    right: -50px;
+    width: 50%;
+}
+/* FIM MENU PAGE */
+
+/* INICIO GALLERY PAGE */
+  
+  .gallery_page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 900px;
+    grid-gap: 0.5rem;
+  }
+  
+  .image {
+    position: relative;
+    padding-bottom: 100%;
+  }
+  
+  .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  
+  .image img{
+    filter: brightness(30%);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    transition: clip-path 0.5s, filter 0.5s;
+  }
+  
+  .image img:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    filter: brightness(100%);
+  }
+  
+/* FIM GALLERY PAGE */
+
+/* INICIO ABOUT PAGE */
+article {
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background-color: #201e20b0;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+article h2 {
+    margin: 0 0 18px 0;
+    font-family: "Bebas Neue", cursive;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+}
+  
+figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #201e20b0;
+}
+
+article img {
+    max-width: 50%;
+    border-radius: 50%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+    object-fit: cover;
+    display: block;
+    margin: auto;
+    margin-top: 13px;
+}
+
+.article-body {
+    padding: 24px;
+    background-color: #201e20b0;
+}
+  
+article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #E0A96D;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+  
+.articles {
+    display: grid;
+    font-family: "Figtree", sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    max-width: 1000px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-gap: 300px;
+    align-items: center;
+}
+/* FIM ABOUT PAGE */
+
+/* ECRÃ MENOR */
+@media screen and (max-width: 700px) {
+
+    header{
+        height: 35px;
+        z-index: 1;
+    }
+
+    .nav_menu .logo{
+        display: none;
+    }
+    .container-menu{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #Limonada_png {
+        position: absolute;
+        top: -20px;
+        right: -10px;
+        width: 40%;
+    }
+    
+    /* INICIO Botão "Hamburguer" */
+    .btncheck {
+        display: block;
+        z-index: 1;
+    }
+
+    /* INICIO Animação */
+    .btncheck.active .bar:nth-child(2) {
+        opacity: 0;  
+    }
+
+    .btncheck.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);  
+    }
+
+    .btncheck.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);  
+    }
+    /* FIM Animação */
+    /* FIM Botão "Hamburguer" */
+
+    /* INICIO Ajuste da navbar ao tamanho do ecrã */
+    .nav_menu li{
+        margin: 16px 0;
+    }
+
+    .nav_menu li a{
+        margin: 6px 0;
+        font-size: 30px;
+    }
+    
+    .nav_menu{
+        position: relative;
+        right: 100%;
+        top: 33px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #201e2081;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        z-index: 1;
+    }
+    /* FIM Ajuste da navbar ao tamanho do ecrã */
+
+    .nav_menu.active{
+        right: 0px;
+    }
+
+    .image img{
+        filter: grayscale(0) brightness(100%);
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
+
+}   
+/* ECRÃ MENOR*/
+
+/* PAGINA LOGIN*/
+.navbar .btnLogin{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    background-color: #201e2081;
+    color: white;
+    border: 2px solid white;
+    border-radius: 6px;
+    border-color: black;
+    font-size: 0.9em;
+    font-weight: 300;
+    margin-left: 40px;
+    transition: 0s;
+    
+}
+
+#lpage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(/images/rustic-kitchen.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #d7d9d7;
+    font-size: 2em;
+    color: #162938;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: #d7d9d7;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #d7d9d7;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #d7d9d7;
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/*Fazer subir a palavra email e password*/
+.input-box input:focus~label, .input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #d7d9d7;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #d7d9d7;
+    line-height: 57px;
+}
+
+.rember-forgot{
+    font-size: 0.9em;
+    color: #d7d9d7;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rember-forgot label input{
+    accent-color: #d7d9d7;
+    margin-right: 3px;
+}
+
+.rember-forgot a{
+    color: #d7d9d7;
+    text-decoration: none;
+}
+
+.rember-forgot a:hover{
+    text-decoration: underline;
+}
+
+
+.btnInsideLogin{
+    width: 100%;
+    height: 45px;
+    background: #d7d9d7;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #162938;
+    font-weight: 500;
+}
+
+.btnInsideLogin:hover{
+    background-color: #c2c4c2;
+}
+
+/* Pagina Reservas */
+#reserva_page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper_reserva{
+    position: relative;
+    width: 900px;
+    height: 650px;
+    background: #162938;
+    border: 2px solid #CD7F32;
+    box-shadow: 0 0 25px #E0A96D;
+    overflow: hidden;
+}
+
+.wrapper_reserva .form-box_reserva{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper_reserva .form-box_reserva.nova_reserva{
+    left: 0;
+    padding: 0 60px 0 40px;
+}
+
+.wrapper_reserva .form-box_reserva.nova_reserva .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper_reserva.active .form-box_reserva.nova_reserva .animation{
+    transform: translateX(-120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper_reserva .form-box_reserva.verificar_reserva{
+    right: 0;
+    padding: 0 40px 0 60px;
+    pointer-events: none;
+}
+
+.wrapper_reserva.active .form-box_reserva.verificar_reserva{
+    pointer-events: auto;
+}
+
+.wrapper_reserva .form-box_reserva.verificar_reserva .animation{
+    transform: translateX(150%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper_reserva.active .form-box_reserva.verificar_reserva .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.form-box_reserva h2{
+    font-size: 32px;
+    color: #CD7F32;
+    text-align: center;
+}
+
+.form-box_reserva .input_box_reserva{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+}
+
+.input_box_reserva input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #d7d9d7;
+    padding-right: 23px;
+    font-size: 16px;
+    color: #d7d9d7;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.input_box_reserva input:focus,
+.input_box_reserva input:valid{
+    border-bottom-color:#CD7F32;
+}
+
+.input_box_reserva label{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #d7d9d7;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input_box_reserva input:focus~label,
+.input_box_reserva input:valid~label{
+    top: -5px;
+    color:#CD7F32;
+}
+
+.input_box_reserva i{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #d7d9d7;
+    transition: .5s;
+}
+
+.input_box_reserva input:focus~i,
+.input_box_reserva input:valid~i{
+    color: #CD7F32;
+}
+
+
+.btn_reserva{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #664418;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #d7d9d7;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn_reserva::before{
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: linear-gradient(#371D10, #CD7F32);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn_reserva:hover::before{
+    top: 0;
+}
+
+.form-box_reserva .goto_check_reserva{
+    font-size: 14.5px;
+    color: #d7d9d7;
+    text-align: center;
+    margin: 20px 0 10px;
+}
+
+.goto_check_reserva p a{
+    color: #CD7F32;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.goto_check_reserva p a:hover{
+    text-decoration: underline;
+}
+
+.wrapper_reserva .info_text_reserva{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper_reserva .info_text_reserva.nova_reserva{
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 150px;
+}
+
+.wrapper_reserva .info_text_reserva.nova_reserva .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition: .7s ease;
+}
+
+.wrapper_reserva.active .info_text_reserva.nova_reserva .animation{
+    transform: translateX(120%);
+    opacity: 0;
+    filter: blur(10px);
+    transition-delay: calc(.1s * var(--i));
+}
+
+.wrapper_reserva .info_text_reserva.verificar_reserva{
+    left: 0;
+    text-align: left;
+    padding: 0 150px 60px 40px;
+    pointer-events: none;
+}
+
+.wrapper_reserva.active .info_text_reserva.verificar_reserva{
+    pointer-events: auto;
+}
+
+.wrapper_reserva .info_text_reserva.verificar_reserva .animation{
+    transform: translateX(-150%);
+    opacity: 0;
+    filter: blur(10px);
+    transition: .7s ease;
+    transition-delay: calc(.1s * var(--j));
+}
+
+.wrapper_reserva.active .info_text_reserva.verificar_reserva .animation{
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transition-delay: calc(.1s * var(--j));
+}
+
+.info_text_reserva h2{
+    font-size: 36px;
+    color: #d7d9d7;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.info_text_reserva p{
+    font-size: 16px;
+    color: #d7d9d7;
+}
+
+ .wrapper_reserva .bg-animate{
+    position: absolute;
+    top: -4px;
+    right: 0;
+    width: 900px;
+    height: 800px;
+    background: linear-gradient(45deg, #371D10, #CD7F32 );
+    border-bottom: 3px solid #CD7F32;
+    transform: rotate(15deg) skewY(40deg);
+    transform-origin: bottom right;
+    transition: 1.5s ease;
+    transition-delay: 1.5s; 
+}
+
+.wrapper_reserva.active .bg-animate{
+    transform: rotate(0) skewY(0);
+    transition-delay: .5s;
+}
+
+.wrapper_reserva .bg-animate2{
+    position: absolute;
+    top: 100%;
+    left: 350px;
+    width: 1000px;
+    height: 900px;
+    background: none;
+    background: #162938;
+    border-top: 3px solid #CD7F32; 
+    transform: rotate(16deg) skewY(41deg);
+    transform-origin: bottom left;
+    transition: 1.5s ease;
+    transition-delay: .5s;
+} 
+
+.wrapper_reserva.active .bg-animate2{
+    transform: rotate(-16deg) skewY(-41deg);
+    transition-delay: 1.2s;
+}
+
+/* Cor do seletor de data em navegadores WebKit (Chrome, Safari) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    margin-right: -22px;
+    cursor: pointer;
+}
+
+/* Cor do seletor de data em navegadores Firefox */
+input[type="date"]::-moz-calendar-box {
+    color: #d7d9d7;
+}
+
+/* Cor do seletor de data em navegadores WebKit (Chrome, Safari) */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    margin-right: -22px;
+    cursor: pointer;
+}
+
+/* Cor do seletor de data em navegadores Firefox */
+input[type="time"]::-moz-calendar-box {
+    color: #d7d9d7;
+}
+
+
+@media (max-width: 576px) {
+    .wrapper_reserva, .info_text_reserva.nova_reserva, .info_text_reserva.verificar_reserva, .bg-animate, .bg-animate2{
+        width: 100%;
+        margin: 10px 0;
+    }
+}
