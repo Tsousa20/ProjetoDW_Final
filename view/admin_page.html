@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <title>Burguer House</title>
+</head>
+
+<body class="body_admin_page">
+
+    <div class="container">
+
+        <!-- Logo Section -->
+        <aside class="left-section">
+            <div class="logo_admin_page">
+                <button class="menu-btn" id="menu-close">
+                    <i class='bx bx-x'></i>
+                </button>
+                <img src="images/logo4.2.png">
+                <a href="#">BurguerD11</a>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <div class="sidebar">
+                <div class="item" id="active">
+                    <i class='bx bx-restaurant'></i>
+                    <a href="#">Menu</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bxs-photo-album'></i>
+                    <a href="#">Gallery</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bxs-book-open'></i>
+                    <!-- <i class='bx bx-folder'></i> -->
+                    <a href="#">About</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bxs-food-menu'></i>
+                    <!-- <i class='bx bx-folder'></i> -->
+                    <a href="#">Reservations</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bxs-user'></i>
+                    <a href="#">Admins</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bx-message-square-dots'></i>
+                    <a href="#">Message</a>
+                </div>
+
+                <div class="item">
+                    <i class='bx bx-log-out-circle'></i>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+            <!-- End Of Sidebar Menu -->
+
+            <!-- Left Section Down -->
+            <div class="pic">
+                <img src="images/background_image.jpg">
+            </div>
+            <!-- End of Left Section Down -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main_admin_page">
+            <header class="header_admin_page">
+                <button class="menu-btn" id="menu-open">
+                    <i class='bx bx-menu'></i>
+                </button>
+                <h5>Hello <b>Admin</b>, welcome back!</h5>
+            </header>
+
+            <div class="separator">
+                <div class="info">
+                    <h3>My Tasks</h3>
+                </div>
+            </div>
+
+            <div class="analytics">
+                <!-- Menu -->
+                <div class="item">
+                    <div class="progress">
+                        <div class="info">
+                            <h5>Menu</h5>
+                            <p>D11 Burguers</p>
+                        </div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <i class='bx bx-restaurant'></i>
+                </div>
+
+                <!-- Gallery -->
+                <div class="item">
+                    <div class="progress">
+                        <div class="info">
+                            <h5>Gallery</h5>
+                            <p>Pictures</p>
+                        </div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <i class='bx bxs-image'></i>
+                </div>
+
+                <!-- About -->
+                <div class="item">
+                    <div class="progress">
+                        <div class="info">
+                            <h5>About</h5>
+                            <p>About Cards</p>
+                        </div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <i class='bx bxs-book-open'></i>
+                </div>
+
+                <!-- Reservations -->
+                <div class="item">
+                    <div class="progress">
+                        <div class="info">
+                            <h5>Reservations</h5>
+                            <p>See Reservations</p>
+                        </div>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                            aria-valuemax="100"></div>
+                    </div>
+                    <i class='bx bxs-food-menu'></i>
+                </div>
+            </div>
+
+            <!-- Separador Admins -->
+            <div class="separator">
+                <div class="info">
+                    <h3>Admins</h3>
+                </div>
+                <div class="search">
+                    <i class='bx bx-plus'></i>
+                    <a href="#">Add New</a>
+                </div>
+            </div>
+            <!-- End of Separador Admins -->
+
+            <!-- Admins -->
+            <div class="planning">
+                <div class="item">
+                    <div class="left">
+                        <div class="icon">
+                            <img src="images/Tiago_Sousa.jpg">
+                        </div>
+                        <div class="details">
+                            <h5>Tiago Sousa</h5>
+                            <p>54 min ago</p>
+                        </div>
+                    </div>
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="icon">
+                            <img src="images/Rodrigo_Anjos.jpg">
+                        </div>
+                        <div class="details">
+                            <h5>Rodrigo Anjos</h5>
+                            <p>6 hours ago</p>
+                        </div>
+                    </div>
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="icon">
+                            <img src="images/Tiago_Lança.jpg">
+                        </div>
+                        <div class="details">
+                            <h5>Tiago_Lança</h5>
+                            <p>3 hours ago</p>
+                        </div>
+                    </div>
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </div>
+
+                <div class="item">
+                    <div class="left">
+                        <div class="icon">
+                            <img src="images/Daniel_Martins.jpg">
+                        </div>
+                        <div class="details">
+                            <h5>Daniel Martins</h5>
+                            <p>12 min ago</p>
+                        </div>
+                    </div>
+                    <i class='bx bx-dots-vertical-rounded'></i>
+                </div>
+            </div>
+            <!-- End of Planning -->
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <aside class="right-section">
+            <div class="top">
+                <div class="profile">
+                    <div class="left">
+                        <img src="images/Tiago_Sousa.jpg">
+                        <div class="user">
+                            <h5>Tiago Sousa</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Right Section -->
+
+            <!-- Statistics -->
+            <div class="separator" id="first">
+                <h4>Board</h4>
+            </div>
+
+            <div class="stats">
+                <div class="item">
+                </div> 
+            </div>
+            <!-- End of Statistics -->
+
+            <!-- Weekly Work Separador -->
+            <div class="separator">
+                <h4>Reminder</h4>
+            </div>
+
+            <div class="weekly">
+                <div class="title">
+                    <div class="line"></div>
+                    <h5>Finalizar o Backend</h5>
+                </div>
+                <div class="progress-bar">
+                    <i class='bx bxs-bell'></i>
+                </div>
+            </div>
+            <!-- End of Weekly Work Separador -->
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -33,6 +33,9 @@ app.get('/reservas', (req, res) => {
 app.get('/login', (req, res) => {
     res.status(200).sendFile('./view/login_page.html', { root: __dirname})
 })
+app.get('/admin', (req, res) => {
+    res.status(200).sendFile('./view/admin_page.html', { root: __dirname})
+})
 
 app.use((req, res) => {
     res.status(404).sendFile('./view/404.html', { root: __dirname})
