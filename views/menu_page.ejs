@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burguer House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/f51d4c2c11.js" crossorigin="anonymous"></script>
+</head>
+<body> 
+    <header class="header_global">
+        <!--Barra de navegação-->   
+        <nav class="navbar">
+            <ul class="nav_menu">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/menu" style="color: #E0A96D;">Menu</a></li>
+                <li id="navbarLogo" class="logo"><a href="/home"><img src="images/logo4.2.png"></a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/reservas">Reservation</a></li>
+            </ul>
+            <div class="btncheck">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <br>
+        <br>
+    </header>
+    <script src="./scripts/script.js"></script>
+
+    <main>
+        <div class="background_image"></div>
+        <section class="container-menu">
+            <div class="hamburguers">
+                <h2> Hamburguers</h2>
+
+                <% resultados1.forEach(function(resultado) { %>     
+                    <ul><b><%= resultado.item_sign_name %></b> <%= resultado.ingredients %></ul>       
+                <% }); %>
+               
+                <img id="Hamburguer_png" src="images/Hambúrguer_0.png">  
+            </div>
+
+            <div class="acompanhamentos">
+                <h2> Acompanhamentos</h2>
+
+                <% resultados2.forEach(function(resultado) { %>     
+                    <ul><%= resultado.ingredients %></ul>       
+                <% }); %>
+
+                <img id="Batatas_png" src="images/Batata_frita.png">
+            </div>
+            <div class="bebidas">
+                <h2> Bebidas</h2>
+                <% resultados3.forEach(function(resultado) { %>     
+                    <ul><%= resultado.ingredients %></ul>       
+                <% }); %>
+                <img id="Limonada_png" src="images/Limonada.png">
+            </div>
+            <div class="sobremesas">
+                <h2> Sobremesas</h2>
+                <% resultados4.forEach(function(resultado) { %>     
+                    <ul><%= resultado.ingredients %></ul>       
+                <% }); %>
+                <img id="Bolo_png" src="images/bolo-de-bolacha.png">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!--Localização/Contacto/Email/Horario-->
+        <hr>
+        <ul>
+            <li><i class="fa-solid fa-house"></i> : Avenida da Liberdade, 240</li>
+            <li><i class="fa-solid fa-phone"></i> : 212 585 999 / 912 912 912</li>
+            <li><i class="fa-solid fa-calendar-days"></i> : Monday - Sunday: 12.00 P.M - 02.00 A.M</li>
+            
+        </ul>
+        <span class="icons">
+            <i class="fa-brands fa-instagram fa-2xl"></i>
+            <i class="fa-brands fa-x-twitter fa-2xl"></i>
+            <i class="fa-brands fa-tiktok fa-2xl"></i>
+        </span>
+    </footer>
+</body>
+</html>

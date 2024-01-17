@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burguer House</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/f51d4c2c11.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header class="header_global">
+        <!--Barra de navegação-->   
+        <nav class="navbar">
+            <ul class="nav_menu">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/menu">Menu</a></li>
+                <li id="navbarLogo" class="logo"><a href="/home"><img src="images/logo4.2.png"></a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/about" style="color: #E0A96D;">About</a></li>
+                <li><a href="/reservas">Reservation</a></li>
+            </ul>
+            <div class="btncheck">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <br>
+        <br>
+    </header>
+    <script src="script.js"></script>
+
+    <main>
+        <div class="background_image"></div>
+            <section class="articles">
+                <article>
+                    <div class="article-wrapper">
+                        <div class="article-body">
+                        <h2>Our Story</p></h2>
+                        <p>
+                            At the heart of BURGER D11 is the story of <b><font color="#E0A96D" >four passionate individuals</font></b> who came together to redefine the burger experience. Meet the team that brings you joy to every bite!
+                        </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="article-wrapper">
+                        <div class="article-body">
+                        <h2>Our Mission</h2>
+                        <p>
+                            Our mission is straightforward: we aim to craft burgers that <b><font color="#E0A96D" >bring joy and delight.</font></b> with every bite. From the initial taste to the final morsel, <b><font color="#E0A96D" >we strive for perfection.</font></b> At BURGER D11, we uphold a commitment to quality; each ingredient is meticulously selected to <b><font color="#E0A96D" >ensure a top-notch experience,</font></b> making your time with us nothing short of the best.
+                        </p>
+                        </div>
+                    </div>
+                </article>
+                        
+            
+                <% dados.forEach(function(dado) { %>
+                    <article>
+                        <div class="article-wrapper">
+                            <figure>
+                            <img src= <%= dado.owner_image %> alt="" />
+                            </figure>
+                            <div class="article-body">
+                                <h2><%= dado.owner_name %> – <p><%= dado.owner_about_descrp %></p></h2>
+                                <p><%= dado.owner_about %></p>
+                            </div>
+                        </div> 
+                    </article> 
+                                
+                <% }); %>       
+            </section>
+        </div>
+    </main>
+      
+
+    <footer>
+        <!--Localização/Contacto/Email/Horario-->
+        <hr>
+        <ul>
+            <li><i class="fa-solid fa-house"></i> : Avenida da Liberdade, 240</li>
+            <li><i class="fa-solid fa-phone"></i> : 212 585 999 / 912 912 912</li>
+            <li><i class="fa-solid fa-calendar-days"></i> : Monday - Sunday: 12.00 P.M - 02.00 A.M</li>
+            
+        </ul>
+        <span class="icons">
+            <i class="fa-brands fa-instagram fa-2xl"></i>
+            <i class="fa-brands fa-x-twitter fa-2xl"></i>
+            <i class="fa-brands fa-tiktok fa-2xl"></i>
+        </span>
+    </footer>
+</body>
+</html>
