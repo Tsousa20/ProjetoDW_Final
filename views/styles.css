@@ -1102,28 +1102,7 @@ ul{
     margin-left: 100px;
 }
 
-.btn_admin_save_menu_2{
-    font-size: 16px;
-    font-weight: 500;
-    padding: 12px 35px;
-    color: white;
-    border-radius: 40px;
-    display: inline-block;
-    white-space: nowrap;
-    border: none;
-    background: var(--skin-color);
-    justify-content: space-between;
-    transition: all 0.3s ease;
-    margin-top: 5px;
-    margin-left: 200px;
-}
-
 .btn_admin_save_menu:hover{
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-.btn_admin_save_menu_2:hover{
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -1711,6 +1690,19 @@ h3.my_profession{
     display: none;
 }
 
+#delete_menu{
+    display: none;
+}
+
+#add_image{
+    display: none;
+}
+
+#delete_image{
+    display: none;
+}
+
 .hidden_form{
     display: none;
 }
+

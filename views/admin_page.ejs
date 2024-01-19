@@ -91,11 +91,12 @@
                                     <h4><%= resultado.owner_name %> - <%= resultado.owner_about_descrp %></h4>
                                     <p><%= resultado.owner_about %></p>
                                 </div>
-                                <button class="btn_admin_change_about">Change</button>
-                                <button class="btn_admin_save_about">Save</button>
                             </div>             
                         <% }); %> 
+                    </div>
 
+                    <div class="btn_add_delete_admin">
+                        <button class="btn_admin_save_menu" onclick="mostrarForm_Change_Menu()">Change About</button>
                     </div>
                 </div>
             </div>
@@ -168,7 +169,8 @@
                         </div>
 
                         <div class="btn_add_delete_admin">
-                            <button class="btn_admin_save_menu_2" onclick="mostrarForm_Change_Menu()">Change Menu</button>
+                            <button class="btn_admin_change_menu" onclick="mostrarForm_Change_Menu()">Change Menu</button>
+                            <button class="btn_admin_change_menu" onclick="mostrarForm_Delete_Menu()">Delete Menu</button>
                         </div>
                     </div>
 
@@ -179,7 +181,7 @@
                                 <h2>Change Menu</h2>
                             </div>
                         </div>
-                        <h3 class="contact-title_crud">Make changes to the menu</h3>
+                        <h3 class="contact-title_crud">Add elements to the menu</h3>
     
                         <div class="row">
                             <div class="crud-form padd-15">
@@ -221,9 +223,53 @@
                                 
                         </div>
                     </div>
-                    <!-- <button class="btn_admin_change_menu">Change</button>
-                    <button class="btn_admin_save_menu">Save</button> -->
                 </div>
+
+                <!-- ===== CRUD Forms Delete Menu ===== -->
+                <div id="delete_menu">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Delete Menu</h2>
+                        </div>
+                    </div>
+                    <h3 class="contact-title_crud">Delete elements from the menu</h3>
+
+                    <div class="row">
+                        <div class="crud-form padd-15">
+                            <form action="/admin/formDeleteMenu" method="post">
+                                <div class="row">
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <select class="form-control" id="first_select_formDeleteMenu" onchange="updateSecondSelect('formDeleteMenu')" required>
+                                                <option value="Acompanhamentos" class="form-control">Acompanhamentos</option>
+                                                <option value="Hamburger" class="form-control">Hamburger</option>
+                                                <option value="Bebidas" class="form-control">Bebidas</option>
+                                                <option value="Sobremesas" class="form-control">Sobremesas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-item col-6 padd-15">
+                                        <div class="form-group">
+                                            <select class="form-control" id="second_select_formDeleteMenu" required></select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-item col-12 padd-15">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn_admin">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                            
+                    </div>
+                </div>
+
+
             </div>
             <!-- ===== End of Menu Section ===== -->
 
@@ -247,11 +293,85 @@
                                         <img src="<%= resultado.path_url %>" alt="">
                                     </div>
                                 </div>
-                                <button class="btn_admin_change_menu">Change</button>
-                                <button class="btn_admin_save_menu">Save</button>
                             </div>           
                         <% }); %>
                     </div>
+
+                    <div class="btn_add_delete_admin">
+                        <button class="btn_admin_change_menu" onclick="mostrarForm_Add_Image()">Add Image</button>
+                        <button class="btn_admin_change_menu" onclick="mostrarForm_Delete_Image()">Delete Image</button>
+                    </div>
+
+                    <!-- ===== CRUD Forms Add Image ===== -->
+                    <div id="add_image">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Add Image</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">Add Images to the gallery</h3>
+
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Path (Ex: images/image_example.png)">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin">Add Image</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
+                    </div>
+
+                    <!-- ===== CRUD Forms Delete Image ===== -->
+                    <div id="delete_image">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Delete Image</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">Delete Images from the gallery</h3>
+
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <select class="form-control" required>
+                                                    <% resultados3.forEach(function(resultado) { %>
+                                                        <option><%= resultado.path_url %></option>
+                                                    <% }); %>
+                                                </select>
+                                            </div>
+                                        </div>           
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin">Delete Image</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- ===== End of Gallery Section ===== -->
@@ -479,66 +599,6 @@
                 </div>    
             </section>
             <!-- ===== End of Resrvation Section ===== -->
-
-            <!-- ===== CRUD Forms Section ===== -->
-            <!-- <section class="contact section" id="add_admin">
-                <div class="container_admin">
-                    <div class="row">
-                        <div class="section-title padd-15">
-                            <h2>Add Admin</h2>
-                        </div>
-                    </div>
-                    <h3 class="contact-title_crud">Have you any question?</h3>
-                    <h4 class="contact-sub-title_crud">I'm at your services</h4> -->
-                    
-                    <!-- ===== CRUD Forms =====
-                    <div class="row">
-                        <div class="crud-form padd-15">
-                            <div class="row">
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Name">
-                                    </div>
-                                </div>
-
-                                <div class="form-item col-6 padd-15">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Subject">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-item col-12 padd-15">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn_admin">Send Message</button>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        
-                    </div> -->
-                </div>
-                
-            </section>
         </div>
     </div>
     <!-- ===== End of Main Container ===== -->

@@ -164,3 +164,71 @@ function mostrarForm_Change_Menu() {
         formulario.style.display = "block";
     }
 };
+
+function mostrarForm_Delete_Menu() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("delete_menu");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
+
+function updateSecondSelect(formIdentifier) {
+    var firstSelect = document.getElementById(`first_select_${formIdentifier}`);
+    var secondSelect = document.getElementById(`second_select_${formIdentifier}`);
+    var selectedOption = firstSelect.value;
+
+
+    // Requisição ao Node.js para obter as opções do segundo select
+    fetch(`/admin/${formIdentifier}/${selectedOption}`)
+        .then(response => response.json())
+        .then(options => {
+            // Limpar as opções atuais do segundo select
+            secondSelect.innerHTML = "";
+
+            // Adicionar as opções ao segundo select
+            options.forEach(option => {
+                var optionElement = document.createElement("option");
+                optionElement.value = option.value;
+                optionElement.text = option.text;
+                secondSelect.add(optionElement);
+            });
+        })
+        .catch(error => console.error('Erro ao obter opções:', error));
+}
+
+//Gallery Section
+
+function mostrarForm_Add_Image() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("add_image");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
+
+function mostrarForm_Delete_Image() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("delete_image");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};

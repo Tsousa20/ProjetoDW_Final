@@ -1,1 +1,1 @@
-res.redirect('/admin');
+firstOption

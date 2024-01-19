@@ -257,6 +257,7 @@ app.get('/admin', async (req, res) => {
         const query7 = 'SELECT * FROM menu WHERE item_name = "Sobremesas"';
         const resultados7 = await executeQueryAdmin(query7);
 
+
         // Renderizar a página EJS com os resultados
         res.render('admin_page', { resultados1, resultados2, resultados3, resultados4, resultados5, resultados6, resultados7 });
     } catch (error) {
@@ -277,6 +278,37 @@ function executeQueryAdmin(query) {
         });
     });
 }
+
+app.get('/admin/:formIdentifier/:firstOption', (req, res) => {
+    const formIdentifier = req.params.formIdentifier;
+    const firstOption = req.params.firstOption;
+
+    let sql;
+    let columnName;
+
+    if(formIdentifier === 'formDeleteMenu'){
+        sql = 'SELECT ingredients FROM menu WHERE item_name = ?';
+        columnName = 'ingredients';
+    } else {
+        res.status(400).json({ error: 'Identificador de formulário inválido' });
+        return;
+    }
+
+    connection.query(sql, [firstOption], (err, results) => {
+        if (err) {
+            console.error('Erro na consulta ao banco de dados:', err);
+            res.status(500).json({ error: 'Erro interno do servidor' });
+            return;
+        }
+
+        const options = results.map(result => ({
+            value: result[columnName],
+            text: result[columnName]
+        }));
+
+        res.json(options);
+    });
+});
 
 app.get('/admin', (req, res) => {
     res.render('admin_page')
