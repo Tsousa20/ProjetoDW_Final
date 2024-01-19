@@ -81,11 +81,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        
-                        <!-- This is the man who keeps the ship steady. With a knack for numbers and a heart
-                                    for sustainability, he ensures that BURGUER D11 not only serves top quality burgers
-                                    but does so with a mindful approach to business. -->
-                        <!-- ===== About Item Start ===== -->
 
                         <% resultados2.forEach(function(resultado) { %>
                             <div class="menu_admin-item padd-15">
@@ -101,65 +96,6 @@
                             </div>             
                         <% }); %> 
 
-
-
-
-                        <!-- <div class="menu_admin-item padd-15">
-                            <div class="menu_admin-item-inner">
-                                <div class="icon_admin">
-                                    <img src="images/Tiago_Sousa.jpg">
-                                </div>
-                                <h4>TIAGO SOUSA - BUSINESS STRATEGIST</h4>
-                                <p id="about_admin_id">
-                                </p>
-                            </div>
-                            <button class="btn_admin_change_about">Change</button>
-                            <button class="btn_admin_save_about">Save</button>
-                        </div>
-
-                        <div class="menu_admin-item padd-15">
-                            <div class="menu_admin-item-inner">
-                                <div class="icon_admin">
-                                    <img src="images/Rodrigo_Anjos.jpg">
-                                </div>
-                                <h4>RODRIGO ANJOS - CREATIVE SOUL</h4>
-                                <p>Meet Rodrigo, the creative force behind BURGER D11. With an artistic eye, he is
-                                    the one who transforms your experience into more than just a meal. From designing
-                                    the menu, decorating the restaurant, he delivers a warm and inviting atmosphere.
-                                </p>
-                            </div>
-                            <button class="btn_admin_change_about">Change</button>
-                            <button class="btn_admin_save_about">Save</button>
-                        </div>
-
-                        <div class="menu_admin-item padd-15">
-                            <div class="menu_admin-item-inner">
-                                <div class="icon_admin">
-                                    <img src="images/Tiago_Lança.jpg">
-                                </div>
-                                <h4>TIAGO LANÇA - CHEF AND BURGER ENTHUSIAST </h4>
-                                <p>Meet the chef of BURGER D11, his love for burgers originated in his kitchen with all
-                                    kinds of experiments, and keeps getting bigger. His enthusiasm to discover new and
-                                    better recipes is on fire. He delivers top quality and tasty burgers to everyone.
-                                </p>
-                            </div>
-                            <button class="btn_admin_change_about">Change</button>
-                            <button class="btn_admin_save_about">Save</button>
-                        </div>
-
-                        <div class="menu_admin-item padd-15">
-                            <div class="menu_admin-item-inner">
-                                <div class="icon_admin">
-                                    <img src="images/Daniel_Martins.jpg">
-                                </div>
-                                <h4>DANIEL MARTINS - GRILL EXPERT</h4>
-                                <p>Daniel knows his way around the grill like no one else. His commitment to achieving
-                                    the perfect sear and crafting the juiciest burgers for a consistently delicious experience.
-                                </p>
-                            </div>
-                            <button class="btn_admin_change_about">Change</button>
-                            <button class="btn_admin_save_about">Save</button>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -179,17 +115,15 @@
                         <div class="menu_admin-item padd-15">
                             <div class="menu_admin-item-inner">
                                 <div class="icon_admin">
-                                    <i class="fa-solid fa-burger"></i>
+                                    <i class="fa-solid fa-martini-glass-citrus"></i>
                                 </div>
-                                <h4>Hamburguers</h4>
-                                <p>
-                                    <% resultados4.forEach(function(resultado) { %>     
-                                        <ul><b><%= resultado.item_sign_name %></b> <%= resultado.ingredients %></ul>      
-                                    <% }); %>
-                                </p>
+                                <h4>Bebidas</h4>
+
+                                <% resultados6.forEach(function(resultado) { %>     
+                                    <p><%= resultado.ingredients %></p>   
+                                <% }); %>
+
                             </div>
-                            <button class="btn_admin_change_menu">Change</button>
-                            <button class="btn_admin_save_menu">Save</button>
                         </div>
 
                         <div class="menu_admin-item padd-15">
@@ -204,24 +138,6 @@
                                 <% }); %>
 
                             </div>
-                            <button class="btn_admin_change_menu">Change</button>
-                            <button class="btn_admin_save_menu">Save</button>
-                        </div>
-
-                        <div class="menu_admin-item padd-15">
-                            <div class="menu_admin-item-inner">
-                                <div class="icon_admin">
-                                    <i class="fa-solid fa-martini-glass-citrus"></i>
-                                </div>
-                                <h4>Bebidas</h4>
-
-                                <% resultados6.forEach(function(resultado) { %>     
-                                    <p><%= resultado.ingredients %></p>   
-                                <% }); %>
-
-                            </div>
-                            <button class="btn_admin_change_menu">Change</button>
-                            <button class="btn_admin_save_menu">Save</button>
                         </div>
 
                         <div class="menu_admin-item padd-15">
@@ -234,13 +150,79 @@
                                 <% resultados7.forEach(function(resultado) { %>     
                                     <p><%= resultado.ingredients %></p>   
                                 <% }); %>
-
                             </div>
-                            <button class="btn_admin_change_menu">Change</button>
-                            <button class="btn_admin_save_menu">Save</button>
                         </div>
 
+                        <div class="menu_admin-item padd-15">
+                            <div class="menu_admin-item-inner">
+                                <div class="icon_admin">
+                                    <i class="fa-solid fa-burger"></i>
+                                </div>
+                                <h4>Hamburguers</h4>
+                                <p>
+                                    <% resultados4.forEach(function(resultado) { %>     
+                                        <ul><b><%= resultado.item_sign_name %></b> <%= resultado.ingredients %></ul>      
+                                    <% }); %>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="btn_add_delete_admin">
+                            <button class="btn_admin_save_menu_2" onclick="mostrarForm_Change_Menu()">Change Menu</button>
+                        </div>
                     </div>
+
+                    <!-- ===== CRUD Forms Change Menu ===== -->
+                    <div id="change_menu">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Change Menu</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">Make changes to the menu</h3>
+    
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form>
+                                    <div class="row">
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <select class="form-control" id="select_option" onchange="OcultarInputForm()" required>
+                                                    <option class="form-control">Acompanhamentos</option>
+                                                    <option value="Hamburger" class="form-control">Hamburger</option>
+                                                    <option class="form-control">Bebidas</option>
+                                                    <option class="form-control">Sobremesas</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div id="input_hidden" class="form-item col-6 padd-15 hidden_form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Signature Name (Ex: D11)">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Ingredients" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
+                    </div>
+                    <!-- <button class="btn_admin_change_menu">Change</button>
+                    <button class="btn_admin_save_menu">Save</button> -->
                 </div>
             </div>
             <!-- ===== End of Menu Section ===== -->
@@ -296,15 +278,176 @@
                                     <h4><%= resultado.owner_name %></h4>
                                     <p>Username: <%= resultado.owner_user_name %></p>
                                 </div>
-                                <button class="btn_admin_change_menu">Change Password</button>
                             </div>                
                         <% }); %> 
 
                         <div class="btn_add_delete_admin">
-                            <button class="btn_admin_change_menu">Add Admin</button>
-                            <button class="btn_admin_change_menu">Delete Admin</button>
+                            <button class="btn_admin_change_menu" onclick="mostrarForm_Add_Admin()">Add Admin</button>
+                            <button class="btn_admin_change_menu" onclick="mostrarForm_Delete_Admin()">Delete Admin</button>
+                            <button class="btn_admin_change_menu" onclick="mostrarForm_Change_Passwd_Admin()">Change Password</button>
                         </div>
                     </div>
+
+
+                    <!-- ===== CRUD Forms Add Admin ===== -->
+                    <div id="add_admin">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Add Admin</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">This information will be uploaded to the website</h3>
+    
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form>
+                                    <div class="row">
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Username" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="password" id="novaPasswd_add_admin" class="form-control" placeholder="Password" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="password" id="confirmarPasswd_add_admin" class="form-control" placeholder="Confirm Password" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Admin Image (write the path)" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Admin main description" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <textarea name="" class="form-control" id="" placeholder="About Admin" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin" onclick="validarSenha_add_admin()">Submit Admin</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
+                    </div>
+
+                    <!-- ===== CRUD Forms Delete Admin ===== -->
+                    <div id="delete_admin">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Delete Admin</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">Select the name and username of the administrator to be deleted.</h3>
+    
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form>
+                                    <div class="row">
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Username" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin">Delete Admin</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
+                    </div>
+
+                    <!-- ===== CRUD Forms Change Password Admin ===== -->
+                    <div id="change_passwd_admin">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Change Password</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">Select the username and password to be changed.</h3>
+    
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form>
+                                    <div class="row">
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Username" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="password" id="novaPasswd_change_psswd" class="form-control" placeholder="Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="password" id="confirmarPasswd_change_psswd" class="form-control" placeholder="Confirm Password" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin" onclick="validarSenha_change_psswd()">Change Password</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
 
@@ -336,6 +479,66 @@
                 </div>    
             </section>
             <!-- ===== End of Resrvation Section ===== -->
+
+            <!-- ===== CRUD Forms Section ===== -->
+            <!-- <section class="contact section" id="add_admin">
+                <div class="container_admin">
+                    <div class="row">
+                        <div class="section-title padd-15">
+                            <h2>Add Admin</h2>
+                        </div>
+                    </div>
+                    <h3 class="contact-title_crud">Have you any question?</h3>
+                    <h4 class="contact-sub-title_crud">I'm at your services</h4> -->
+                    
+                    <!-- ===== CRUD Forms =====
+                    <div class="row">
+                        <div class="crud-form padd-15">
+                            <div class="row">
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-item col-6 padd-15">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Subject">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <textarea name="" class="form-control" id="" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-item col-12 padd-15">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn_admin">Send Message</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        
+                    </div> -->
+                </div>
+                
+            </section>
         </div>
     </div>
     <!-- ===== End of Main Container ===== -->

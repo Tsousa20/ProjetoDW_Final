@@ -1078,6 +1078,7 @@ ul{
     justify-content: space-between;
     transition: all 0.3s ease;
     margin-top: 5px;
+
 }
 
 .btn_admin_change_menu:hover{
@@ -1101,7 +1102,28 @@ ul{
     margin-left: 100px;
 }
 
+.btn_admin_save_menu_2{
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 35px;
+    color: white;
+    border-radius: 40px;
+    display: inline-block;
+    white-space: nowrap;
+    border: none;
+    background: var(--skin-color);
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    margin-left: 200px;
+}
+
 .btn_admin_save_menu:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.btn_admin_save_menu_2:hover{
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -1612,4 +1634,83 @@ h3.my_profession{
     transition: all 0.3s ease;
     border-radius: 50%;
     top: 55px;
+}
+
+/*CRUD FORMS*/
+.contact-title_crud{
+    color: var(--skin-color);
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.contact-sub-title_crud{
+    color: var(--text-black-900);
+    text-align: center;
+    font-size: 15px;
+}
+
+.crud-form{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.crud-form .col-6{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.crud-form .col-12{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.contact .crud-form .form-item{
+    margin-bottom: 30px; 
+}
+
+.crud-form .form-item .form-control{
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    padding: 10px 25px;
+    font-size: 16px;
+    color: var(--text-black-700);
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.crud-form .form-item .form-control:focus{
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+
+.crud-form .form-item textarea.form-control{
+    height: 120px;
+}
+
+.crud-form .btn_admin{
+    height: 50px;
+    padding: 0 50px;
+}
+
+#add_admin{
+    display: none;
+}
+
+#delete_admin{
+    display: none;
+}
+
+#change_passwd_admin{
+    display: none;
+}
+
+#change_menu{
+    display: none;
+}
+
+.hidden_form{
+    display: none;
 }

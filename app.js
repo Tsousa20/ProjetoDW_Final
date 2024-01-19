@@ -4,8 +4,6 @@ const mysql = require("mysql");
 const cors = require('cors');
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
-
-
 const bodyParser = require('body-parser');
 const encoder = bodyParser.urlencoded();
 
@@ -259,10 +257,6 @@ app.get('/admin', async (req, res) => {
         const query7 = 'SELECT * FROM menu WHERE item_name = "Sobremesas"';
         const resultados7 = await executeQueryAdmin(query7);
 
-        // // Query para about
-        // const query8 = 'SELECT * FROM menu WHERE item_name = "Sobremesas"';
-        // const resultados8 = await executeQueryAdmin(query8);
-
         // Renderizar a página EJS com os resultados
         res.render('admin_page', { resultados1, resultados2, resultados3, resultados4, resultados5, resultados6, resultados7 });
     } catch (error) {
@@ -284,40 +278,9 @@ function executeQueryAdmin(query) {
     });
 }
 
-
-
-
-// app.get('/admin', (req, res) => {
-//     const sql = 'SELECT * FROM reservas ORDER BY date_reserva ASC';
-
-//     connection.query(sql, (error, results, fields) => {
-//         if (error) throw error;
-
-//         const dadosDoBanco = results;
-
-//         // Renderizar a view EJS passando os dados
-//         res.render('admin_page', { dados: dadosDoBanco });
-//     });
-// });
-
-// app.get('/admin-owners', (req, res) => {
-//     const sql = 'SELECT * FROM owners';
-
-//     connection.query(sql, (error, results, fields) => {
-//         if (error) throw error;
-
-//         const dadosDoBanco = results;
-
-//         // Renderizar a view EJS passando os dados
-//         res.render('gallery_page', { dados: dadosDoBanco });
-//     });
-// });
-
 app.get('/admin', (req, res) => {
     res.render('admin_page')
 })
-
-
 
 
 app.use((req, res) => {

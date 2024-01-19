@@ -1,1 +1,1 @@
-resultados1
+res.redirect('/admin');

@@ -70,3 +70,97 @@ function asideSectionTogglerBtn(){
         allSection[i].classList.toggle("open");
     }
 }
+
+// Admin Section
+
+// Add admin form
+function mostrarForm_Add_Admin() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("add_admin");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
+
+// Delete admin form
+function mostrarForm_Delete_Admin() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("delete_admin");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
+
+// Change passwd form
+function mostrarForm_Change_Passwd_Admin() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("change_passwd_admin");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
+
+// Validar passwd
+function validarSenha_add_admin() {
+    var novaPasswd = document.getElementById("novaPasswd_add_admin").value;
+    var confirmarPasswd = document.getElementById("confirmarPasswd_add_admin").value;
+
+    if (novaPasswd !== confirmarPasswd) {
+        alert("As passwords não coincidem. Por favor, digite novamente.");
+        return false;
+    }
+    // Se as passwds coincidirem, envia
+    return true;
+}
+function validarSenha_change_psswd() {
+    var novaPasswd = document.getElementById("novaPasswd_change_psswd").value;
+    var confirmarPasswd = document.getElementById("confirmarPasswd_change_psswd").value;
+
+    if (novaPasswd !== confirmarPasswd) {
+        alert("As passwords não coincidem. Por favor, digite novamente.");
+        return false;
+    }
+    // Se as passwds coincidirem, envia
+    return true;
+}
+
+// Menu Section
+function OcultarInputForm() {
+    var select_option = document.getElementById("select_option");
+    var input_hidden = document.getElementById("input_hidden");
+
+    // Mostra o input se a opção hamburger for selecionada, oculta para outras opções
+    input_hidden.style.display = select_option.value === "Hamburger" ? "block" : "none";
+}
+
+function mostrarForm_Change_Menu() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("change_menu");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
