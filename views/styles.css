@@ -1702,6 +1702,10 @@ h3.my_profession{
     display: none;
 }
 
+#change_about{
+    display: none;
+}
+
 .hidden_form{
     display: none;
 }

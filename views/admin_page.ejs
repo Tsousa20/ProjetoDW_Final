@@ -60,7 +60,7 @@
                             <h3 class="my_profession">Welcome back to the <span class="typing_admin">dashboard</span></h3>
                             <p>This is the admin dashboard, where i can manage my restaurant. Here 
                             I can change the menu, change the gallery, check on the reservations and on the other Admins...</p>
-                            <a href="#" class="btn_admin" onclick= "location.href='/login';">Exit Dashboard</a>
+                            <a href="/logout" class="btn_admin">Exit Dashboard</a>
                         </div>
 
                         <div class="home_img_admin padd-15">
@@ -81,7 +81,6 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <% resultados2.forEach(function(resultado) { %>
                             <div class="menu_admin-item padd-15">
                                 <div class="menu_admin-item-inner">
@@ -96,7 +95,52 @@
                     </div>
 
                     <div class="btn_add_delete_admin">
-                        <button class="btn_admin_save_menu" onclick="mostrarForm_Change_Menu()">Change About</button>
+                        <button class="btn_admin_save_menu" onclick="mostrarForm_Change_About()">Change About</button>
+                    </div>
+
+                    <!-- ===== CRUD Forms Change About ===== -->
+                    <div id="change_about">
+                        <div class="row">
+                            <div class="section-title padd-15">
+                                <h2>Change About</h2>
+                            </div>
+                        </div>
+                        <h3 class="contact-title_crud">Change the information about the admins</h3>
+
+                        <div class="row">
+                            <div class="crud-form padd-15">
+                                <form action="/change-about" method="post">
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <select class="form-control" name="admin_name_change_about" required>
+                                                    <% resultados2.forEach(function(resultado) { %>
+                                                        <option><%= resultado.owner_name %></option>
+                                                    <% }); %>
+                                                </select>
+                                            </div>
+                                        </div> 
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="admin_change_about" placeholder="About Admin" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-item col-12 padd-15">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn_admin">Save About</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                                
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,11 +229,11 @@
     
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form>
+                                <form action="/change-menu" method="post">
                                     <div class="row">
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <select class="form-control" id="select_option" onchange="OcultarInputForm()" required>
+                                                <select class="form-control" id="select_option" name="menu_item_name" onchange="OcultarInputForm()" required>
                                                     <option class="form-control">Acompanhamentos</option>
                                                     <option value="Hamburger" class="form-control">Hamburger</option>
                                                     <option class="form-control">Bebidas</option>
@@ -200,13 +244,13 @@
 
                                         <div id="input_hidden" class="form-item col-6 padd-15 hidden_form">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Signature Name (Ex: D11)">
+                                                <input type="text" class="form-control" name="menu_item_sign_name" placeholder="Signature Name (Ex: D11)">
                                             </div>
                                         </div>
 
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Ingredients" required>
+                                                <input type="text" class="form-control" name="menu_ingredients" placeholder="Ingredients" required>
                                             </div>
                                         </div>
                                     </div>
@@ -240,7 +284,7 @@
                                 <div class="row">
                                     <div class="form-item col-6 padd-15">
                                         <div class="form-group">
-                                            <select class="form-control" id="first_select_formDeleteMenu" onchange="updateSecondSelect('formDeleteMenu')" required>
+                                            <select class="form-control" id="first_select_formDeleteMenu" name="menu_item_name" onchange="updateSecondSelect('formDeleteMenu')" required>
                                                 <option value="Acompanhamentos" class="form-control">Acompanhamentos</option>
                                                 <option value="Hamburger" class="form-control">Hamburger</option>
                                                 <option value="Bebidas" class="form-control">Bebidas</option>
@@ -251,7 +295,7 @@
 
                                     <div class="form-item col-6 padd-15">
                                         <div class="form-group">
-                                            <select class="form-control" id="second_select_formDeleteMenu" required></select>
+                                            <select class="form-control" id="second_select_formDeleteMenu" name="menu_ingredients" required></select>
                                         </div>
                                     </div>
                                 </div>
@@ -313,11 +357,11 @@
 
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form action="">
+                                <form action="/add-image" method="post">
                                     <div class="row">
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Path (Ex: images/image_example.png)">
+                                                <input type="text" class="form-control" name="gallery_add_image" placeholder="Path (Ex: images/image_example.png)">
                                             </div>
                                         </div>
                                     </div>
@@ -346,11 +390,11 @@
 
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form action="">
+                                <form action="/delete-image" method="post">
                                     <div class="row">
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <select class="form-control" required>
+                                                <select class="form-control" name="gallery_delete_image" required>
                                                     <% resultados3.forEach(function(resultado) { %>
                                                         <option><%= resultado.path_url %></option>
                                                     <% }); %>
@@ -420,17 +464,17 @@
     
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form>
+                                <form action="/add-admin" method="post">
                                     <div class="row">
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Name" required>
+                                                <input type="text" class="form-control" name="admin_name" placeholder="Name" required>
                                             </div>
                                         </div>
 
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Username" required>
+                                                <input type="text" class="form-control" name="admin_username" placeholder="Username" required>
                                             </div>
                                         </div>
 
@@ -442,19 +486,19 @@
 
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="password" id="confirmarPasswd_add_admin" class="form-control" placeholder="Confirm Password" required>
+                                                <input type="password" id="confirmarPasswd_add_admin" class="form-control" name="admin_passwd" placeholder="Confirm Password" required>
                                             </div>
                                         </div>
 
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Admin Image (write the path)" required>
+                                                <input type="text" class="form-control" name="admin_image" placeholder="Admin Image (write the path)" required>
                                             </div>
                                         </div>
 
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Admin main description" required>
+                                                <input type="text" class="form-control" name="admin_about_descrip" placeholder="Admin main description" required>
                                             </div>
                                         </div>
                                     </div>
@@ -462,7 +506,7 @@
                                     <div class="row">
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <textarea name="" class="form-control" id="" placeholder="About Admin" required></textarea>
+                                                <textarea class="form-control" name="admin_about" placeholder="About Admin" required></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -491,19 +535,17 @@
     
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form>
-                                    <div class="row">
-                                        <div class="form-item col-6 padd-15">
+                                <form action="/delete-admin" method="post">
+                                    <div class="row">         
+                                        <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Name" required>
+                                                <select class="form-control" name="admin_username" required>
+                                                    <% resultados2.forEach(function(resultado) { %>
+                                                        <option><%= resultado.owner_user_name %></option>
+                                                    <% }); %>
+                                                </select>
                                             </div>
-                                        </div>
-
-                                        <div class="form-item col-6 padd-15">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Username" required>
-                                            </div>
-                                        </div>
+                                        </div> 
                                     </div>
 
                                     <div class="row">
@@ -530,17 +572,21 @@
     
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form>
+                                <form action="" method="">
                                     <div class="row">
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Username" required>
+                                                <select class="form-control" name="admin_username" required>
+                                                    <% resultados2.forEach(function(resultado) { %>
+                                                        <option><%= resultado.owner_user_name %></option>
+                                                    <% }); %>
+                                                </select>
                                             </div>
-                                        </div>
+                                        </div> 
 
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="password" id="novaPasswd_change_psswd" class="form-control" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="oldPasswd_change_passwd" name="admin_oldpasswd" placeholder="Old Password" required>
                                             </div>
                                         </div>
                                     </div>
@@ -548,7 +594,13 @@
                                     <div class="row">
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="password" id="confirmarPasswd_change_psswd" class="form-control" placeholder="Confirm Password" required>
+                                                <input type="password" id="novaPasswd_change_passwd" class="form-control" placeholder="New Password" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-item col-6 padd-15">
+                                            <div class="form-group">
+                                                <input type="password" id="confirmarPasswd_change_passwd" class="form-control" name="admin_newpasswd" placeholder="Confirm New Password" required>
                                             </div>
                                         </div>
                                     </div>

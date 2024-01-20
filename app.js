@@ -5,6 +5,7 @@ const cors = require('cors');
 const ejs = require('ejs');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const encoder = bodyParser.urlencoded();
 
 
@@ -18,6 +19,13 @@ app.use(express.static('views'))
 app.use(morgan('dev'))
 app.use(cors());
 app.use(express.urlencoded({extended: false}));
+
+//Express-Session
+app.use(session({
+    secret: 'burger',
+    resave: false,
+    saveUninitialized: true,
+  }));
 
 
 //mysql
@@ -217,17 +225,18 @@ app.post('/login', encoder, function(req, res){
     
     connection.query('SELECT * FROM owners WHERE owner_user_name = ? AND owner_passwd = ?', [owner_user_name, owner_passwd], function(error, results, fields){
         if (results.length > 0){
+            req.session.loggedin = true;
             res.redirect('/admin');
         } else{
             res.redirect('/login');
         }
         res.end();
     })
-})
+});
 
 //************ Admin routes *********
 
-app.get('/admin', async (req, res) => {
+app.get('/admin', verificaAutenticacao, async (req, res) => {
     try {
         // Query para reservas
         const query1 = 'SELECT * FROM reservas ORDER BY date_reserva ASC';
@@ -279,7 +288,7 @@ function executeQueryAdmin(query) {
     });
 }
 
-app.get('/admin/:formIdentifier/:firstOption', (req, res) => {
+app.get('/admin/:formIdentifier/:firstOption', verificaAutenticacao, (req, res) => {
     const formIdentifier = req.params.formIdentifier;
     const firstOption = req.params.firstOption;
 
@@ -310,11 +319,146 @@ app.get('/admin/:formIdentifier/:firstOption', (req, res) => {
     });
 });
 
-app.get('/admin', (req, res) => {
+
+
+//Forms-post
+app.post('/add-admin', encoder, function(req, res){
+    var owner_name = req.body.admin_name;
+    var owner_user_name = req.body.admin_username;
+    var owner_passwd = req.body.admin_passwd;
+    var owner_about = req.body.admin_about;
+    var owner_image = req.body.admin_image;
+    var owner_about_descrp = req.body.admin_about_descrip;
+
+    const query = 'INSERT INTO owners (owner_name, owner_user_name, owner_passwd, owner_about, owner_image, owner_about_descrp) VALUES (?, ?, ?, ?, ?, ?)';
+
+    connection.query(query, [owner_name, owner_user_name, owner_passwd, owner_about, owner_image, owner_about_descrp], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+app.post('/delete-admin', encoder, function(req, res){
+    var owner_user_name = req.body.admin_username;
+
+    const query = 'DELETE FROM owners WHERE owner_user_name = ?';
+
+    connection.query(query, [owner_user_name], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+app.post('/change-menu', encoder, function(req, res){
+    var item_name = req.body.menu_item_name;
+    var item_sign_name = req.body.menu_item_sign_name;
+    var ingredients = req.body.menu_ingredients;
+
+    const query = 'INSERT INTO menu (item_name, item_sign_name, ingredients) VALUES (?, ?, ?)';
+
+    connection.query(query, [item_name, item_sign_name, ingredients], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+app.post('/admin/formDeleteMenu', encoder, function(req, res){
+    var ingredients = req.body.menu_ingredients;
+
+    const query = 'DELETE FROM menu WHERE ingredients = ?';
+
+    connection.query(query, [ingredients], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+app.post('/add-image', encoder, function(req, res){
+    var path_url = req.body.gallery_add_image;
+
+    const query = 'INSERT INTO gallery (path_url) VALUES (?)';
+
+    connection.query(query, [path_url], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+app.post('/delete-image', encoder, function(req, res){
+    var path_url = req.body.gallery_delete_image;
+
+    const query = 'DELETE FROM gallery WHERE path_url = ?';
+
+    connection.query(query, [path_url], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+app.post('/change-about', encoder, function(req, res){
+    var owner_name = req.body.admin_name_change_about;
+    var owner_about = req.body.admin_change_about;
+
+    const query = 'UPDATE owners SET owner_about = ? WHERE owner_name = ?';
+
+    connection.query(query, [owner_about, owner_name], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        }
+        res.redirect('/admin');
+    })
+});
+
+function verificaAutenticacao(req, res, next) {
+    if (req.session.loggedin) {
+      // Autoriza a rota
+      next();
+    } else {
+      // O admin não está autenticado, redireciona para a página de login
+      res.redirect('/login');
+    }
+};
+
+app.get('/logout', (req, res) => {
+    // Remove a sessão
+    req.session.loggedin = false;
+  
+    // Redireciona para a página de login
+    res.redirect('/login');
+  });
+
+app.get('/admin', verificaAutenticacao, (req, res) => {
     res.render('admin_page')
-})
+});
 
 
+//404
 app.use((req, res) => {
     res.render('404')
 })

@@ -131,16 +131,21 @@ function validarSenha_add_admin() {
     return true;
 }
 function validarSenha_change_psswd() {
-    var novaPasswd = document.getElementById("novaPasswd_change_psswd").value;
-    var confirmarPasswd = document.getElementById("confirmarPasswd_change_psswd").value;
+    var novaPasswd = document.getElementById("novaPasswd_change_passwd").value;
+    var confirmarPasswd = document.getElementById("confirmarPasswd_change_passwd").value;
+    var oldPasswd = document.getElementById("oldPasswd_change_passwd").value;
 
-    if (novaPasswd !== confirmarPasswd) {
+    if(novaPasswd === oldPasswd) {
+        alert("Escolha uma password diferente da anterior. Por favor, digite novamente.");
+        return false;
+    } else if (novaPasswd !== confirmarPasswd) {
         alert("As passwords não coincidem. Por favor, digite novamente.");
         return false;
     }
     // Se as passwds coincidirem, envia
     return true;
 }
+
 
 // Menu Section
 function OcultarInputForm() {
@@ -201,10 +206,9 @@ function updateSecondSelect(formIdentifier) {
             });
         })
         .catch(error => console.error('Erro ao obter opções:', error));
-}
+};
 
 //Gallery Section
-
 function mostrarForm_Add_Image() {
     // Obtém o elemento do formulário
     var formulario = document.getElementById("add_image");
@@ -232,3 +236,20 @@ function mostrarForm_Delete_Image() {
         formulario.style.display = "block";
     }
 };
+
+//About Section
+function mostrarForm_Change_About() {
+    // Obtém o elemento do formulário
+    var formulario = document.getElementById("change_about");
+
+    // Verifica o estado atual do formulário
+    if (formulario.style.display === "block") {
+        // Se estiver ativo, oculta o formulário
+        formulario.style.display = "none";
+    } else {
+        // Se estiver oculto, ativa
+        formulario.style.display = "block";
+    }
+};
+
+
