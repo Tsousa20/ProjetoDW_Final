@@ -129,22 +129,25 @@ function validarSenha_add_admin() {
     }
     // Se as passwds coincidirem, envia
     return true;
-}
-function validarSenha_change_psswd() {
-    var novaPasswd = document.getElementById("novaPasswd_change_passwd").value;
-    var confirmarPasswd = document.getElementById("confirmarPasswd_change_passwd").value;
-    var oldPasswd = document.getElementById("oldPasswd_change_passwd").value;
+};
 
-    if(novaPasswd === oldPasswd) {
-        alert("Escolha uma password diferente da anterior. Por favor, digite novamente.");
-        return false;
-    } else if (novaPasswd !== confirmarPasswd) {
-        alert("As passwords não coincidem. Por favor, digite novamente.");
-        return false;
+function validarSenha_change_psswd() {
+    var novaPasswd = document.getElementById("novaPasswd_change_passwd");
+    var confirmarPasswd = document.getElementById("confirmarPasswd_change_passwd");
+    var oldPasswd = document.getElementById("oldPasswd_change_passwd");
+
+    //Verifica se a passwd é a mesma que a confirmar passwd
+    
+    if (novaPasswd === confirmarPasswd){
+        alert('Palavra passe alterada com sucesso.')
     }
-    // Se as passwds coincidirem, envia
-    return true;
-}
+    else if (novaPasswd !== confirmarPasswd) {
+        alert("A nova password não coincide com a confirmação. Por favor, digite novamente.");
+    } else if (novaPasswd === oldPasswd) {
+        alert("Escolha uma password diferente da anterior. Por favor, digite novamente.");
+    }
+};
+
 
 
 // Menu Section
@@ -207,6 +210,7 @@ function updateSecondSelect(formIdentifier) {
         })
         .catch(error => console.error('Erro ao obter opções:', error));
 };
+
 
 //Gallery Section
 function mostrarForm_Add_Image() {

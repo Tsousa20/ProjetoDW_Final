@@ -6,6 +6,7 @@ const ejs = require('ejs');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 const encoder = bodyParser.urlencoded();
 
 
@@ -25,7 +26,7 @@ app.use(session({
     secret: 'burger',
     resave: false,
     saveUninitialized: true,
-  }));
+}));
 
 
 //mysql
@@ -234,6 +235,7 @@ app.post('/login', encoder, function(req, res){
     })
 });
 
+
 //************ Admin routes *********
 
 app.get('/admin', verificaAutenticacao, async (req, res) => {
@@ -342,6 +344,7 @@ app.post('/add-admin', encoder, function(req, res){
     })
 });
 
+
 app.post('/delete-admin', encoder, function(req, res){
     var owner_user_name = req.body.admin_username;
 
@@ -356,6 +359,38 @@ app.post('/delete-admin', encoder, function(req, res){
         res.redirect('/admin');
     })
 });
+
+app.post('/change-passwd', encoder, function(req, res){
+    const owner_user_name = req.body.admin_username;
+    const owner_old_pass = req.body.admin_oldpasswd;
+    const owner_new_pass = req.body.admin_newpasswd;
+
+    const query = 'SELECT * FROM owners WHERE owner_user_name = ? AND owner_passwd = ?';
+
+    connection.query(query, [owner_user_name, owner_old_pass], (err, results) => {
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).send('Erro interno servidor');
+            return;
+        } else if (results.length > 0){
+            const query2 = 'UPDATE owners SET owner_passwd = ? WHERE owner_user_name = ?';
+            connection.query(query2, [owner_new_pass, owner_user_name], (err, results) => {
+                if (err) {
+                    console.error('Erro ao executar a consulta:', err);
+                    res.status(500).send('Erro interno servidor');
+                    return;
+                }
+                res.redirect('/admin');
+                return;      
+            })
+        }
+        res.redirect('/admin');
+        return;
+    })
+});    
+
+
+
 
 app.post('/change-menu', encoder, function(req, res){
     var item_name = req.body.menu_item_name;

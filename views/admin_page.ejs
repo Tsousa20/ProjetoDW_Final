@@ -572,11 +572,11 @@
     
                         <div class="row">
                             <div class="crud-form padd-15">
-                                <form action="" method="">
+                                <form>
                                     <div class="row">
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <select class="form-control" name="admin_username" required>
+                                                <select class="form-control" id='admin_username' name="admin_username" required>
                                                     <% resultados2.forEach(function(resultado) { %>
                                                         <option><%= resultado.owner_user_name %></option>
                                                     <% }); %>
