@@ -1572,6 +1572,7 @@ h3.my_profession{
     .home .home_img_admin{
         display: none;
     }
+    
 }
 
 @media (max-width:767px){
@@ -1588,6 +1589,7 @@ h3.my_profession{
         flex: auto;
         max-width: 100%;
     }
+    
 }
 
 /*Style Switcher*/
@@ -1705,4 +1707,6 @@ h3.my_profession{
 .hidden_form{
     display: none;
 }
+
+
 
