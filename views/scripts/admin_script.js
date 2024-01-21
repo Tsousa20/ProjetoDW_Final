@@ -118,36 +118,6 @@ function mostrarForm_Change_Passwd_Admin() {
     }
 };
 
-// Validar passwd
-function validarSenha_add_admin() {
-    var novaPasswd = document.getElementById("novaPasswd_add_admin").value;
-    var confirmarPasswd = document.getElementById("confirmarPasswd_add_admin").value;
-
-    if (novaPasswd !== confirmarPasswd) {
-        alert("As passwords não coincidem. Por favor, digite novamente.");
-        return false;
-    }
-    // Se as passwds coincidirem, envia
-    return true;
-};
-
-function validarSenha_change_psswd() {
-    var novaPasswd = document.getElementById("novaPasswd_change_passwd");
-    var confirmarPasswd = document.getElementById("confirmarPasswd_change_passwd");
-    var oldPasswd = document.getElementById("oldPasswd_change_passwd");
-
-    //Verifica se a passwd é a mesma que a confirmar passwd
-    
-    if (novaPasswd === confirmarPasswd){
-        alert('Palavra passe alterada com sucesso.')
-    }
-    else if (novaPasswd !== confirmarPasswd) {
-        alert("A nova password não coincide com a confirmação. Por favor, digite novamente.");
-    } else if (novaPasswd === oldPasswd) {
-        alert("Escolha uma password diferente da anterior. Por favor, digite novamente.");
-    }
-};
-
 
 
 // Menu Section

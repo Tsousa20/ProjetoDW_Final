@@ -448,7 +448,6 @@
                         <div class="btn_add_delete_admin">
                             <button class="btn_admin_change_menu" onclick="mostrarForm_Add_Admin()">Add Admin</button>
                             <button class="btn_admin_change_menu" onclick="mostrarForm_Delete_Admin()">Delete Admin</button>
-                            <button class="btn_admin_change_menu" onclick="mostrarForm_Change_Passwd_Admin()">Change Password</button>
                         </div>
                     </div>
 
@@ -466,7 +465,7 @@
                             <div class="crud-form padd-15">
                                 <form action="/add-admin" method="post">
                                     <div class="row">
-                                        <div class="form-item col-6 padd-15">
+                                        <div class="form-item col-12 padd-15">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" name="admin_name" placeholder="Name" required>
                                             </div>
@@ -480,13 +479,7 @@
 
                                         <div class="form-item col-6 padd-15">
                                             <div class="form-group">
-                                                <input type="password" id="novaPasswd_add_admin" class="form-control" placeholder="Password" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-item col-6 padd-15">
-                                            <div class="form-group">
-                                                <input type="password" id="confirmarPasswd_add_admin" class="form-control" name="admin_passwd" placeholder="Confirm Password" required>
+                                                <input type="password" id="confirmarPasswd_add_admin" class="form-control" name="admin_passwd" placeholder="Password" required>
                                             </div>
                                         </div>
 
@@ -514,7 +507,7 @@
                                     <div class="row">
                                         <div class="form-item col-12 padd-15">
                                             <div class="form-group">
-                                                <button type="submit" class="btn_admin" onclick="validarSenha_add_admin()">Submit Admin</button>
+                                                <button type="submit" class="btn_admin">Submit Admin</button>
                                             </div>
                                         </div>
                                     </div>
@@ -561,70 +554,11 @@
                         </div>
                     </div>
 
-                    <!-- ===== CRUD Forms Change Password Admin ===== -->
-                    <div id="change_passwd_admin">
-                        <div class="row">
-                            <div class="section-title padd-15">
-                                <h2>Change Password</h2>
-                            </div>
-                        </div>
-                        <h3 class="contact-title_crud">Select the username and password to be changed.</h3>
-    
-                        <div class="row">
-                            <div class="crud-form padd-15">
-                                <form>
-                                    <div class="row">
-                                        <div class="form-item col-6 padd-15">
-                                            <div class="form-group">
-                                                <select class="form-control" id='admin_username' name="admin_username" required>
-                                                    <% resultados2.forEach(function(resultado) { %>
-                                                        <option><%= resultado.owner_user_name %></option>
-                                                    <% }); %>
-                                                </select>
-                                            </div>
-                                        </div> 
-
-                                        <div class="form-item col-6 padd-15">
-                                            <div class="form-group">
-                                                <input type="password" class="form-control" id="oldPasswd_change_passwd" name="admin_oldpasswd" placeholder="Old Password" required>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-item col-6 padd-15">
-                                            <div class="form-group">
-                                                <input type="password" id="novaPasswd_change_passwd" class="form-control" placeholder="New Password" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-item col-6 padd-15">
-                                            <div class="form-group">
-                                                <input type="password" id="confirmarPasswd_change_passwd" class="form-control" name="admin_newpasswd" placeholder="Confirm New Password" required>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="form-item col-12 padd-15">
-                                            <div class="form-group">
-                                                <button type="submit" class="btn_admin" onclick="validarSenha_change_psswd()">Change Password</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                                
-                        </div>
-                    </div>
-
-
-
                 </div>
             </div>
 
 
-            <!-- ===== Resrvation Start ===== -->
+            <!-- ===== Reservation Start ===== -->
 
             <section class="contact section" id="contact2">
                 <div class="container_admin">
